@@ -1,13 +1,24 @@
 import type { Config } from "tailwindcss";
-import {nextui} from "@nextui-org/react";
+import plugin from 'tailwindcss/plugin';
+import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
+
+const addVariablesForColors = plugin(({ addBase, theme }) => {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  ) as Record<string, string>;
+
+  addBase({
+    ":root": newVars,
+  });
+});
 
 const config: Config = {
     darkMode: ["class"],
     content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-		"./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
-		'./node_modules/@nextui-org/theme/dist/components/'
+
   ],
   theme: {
   	extend: {
@@ -74,30 +85,25 @@ const config: Config = {
   		},
 			fontFamily: {
 				syne: ['var(--font-syne)']
-			}
+			},
+			animation: {
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+			keyframes: {
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
+      },
   	}
   },
   plugins: [
 		// eslint-disable-next-line @typescript-eslint/no-require-imports
 		require("@xpd/tailwind-3dtransforms"),
-		nextui({
-      prefix: "nextui", // prefix for themes variables
-      addCommonColors: false, // override common colors (e.g. "blue", "green", "pink").
-      defaultTheme: "light", // default theme from the themes object
-      defaultExtendTheme: "light", // default theme to extend on custom themes
-      layout: {}, // common layout tokens (applied to all themes)
-      themes: {
-        light: {
-          layout: {}, // light theme layout tokens
-          colors: {}, // light theme colors
-        },
-        dark: {
-          layout: {}, // dark theme layout tokens
-          colors: {}, // dark theme colors
-        },
-        // ... custom themes
-      },
-    })
+		addVariablesForColors
 	],
 };
+
 export default config;

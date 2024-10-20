@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
-import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
@@ -21,6 +20,7 @@ import {
 } from "@/components/ui/select"
 import { formSchema } from "@/schema/validation"
 import { Textarea } from "./ui/textarea"
+import Button from "./Button"
 
 
 export const ContactForm = () => {
@@ -41,7 +41,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <div className="w-full max-w-4xl ">
+    <div className="w-full ">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -136,7 +136,7 @@ export const ContactForm = () => {
               )}
             />
           </div>
-          <Button type="submit" className="w-full bg-gray-600 hover:bg-gray-700">
+          <Button type="submit" className=" bg-gray-600 hover:bg-gray-700">
             SEND MESSAGE
           </Button>
         </form>

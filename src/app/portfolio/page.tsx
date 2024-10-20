@@ -45,7 +45,7 @@ const Portfolio = () => {
           portfolio.map(card => (
             <div key={card.id} className='border p-2.5 '>
               {/* CARD */}
-              <GlareCard key={card.id} width={267} height={267} className="flex flex-col items-center justify-center">
+              <GlareCard key={card.id} className="flex flex-col items-center justify-center">
                 <p className="text-white font-bold text-2xl mt-4 uppercase">Any size</p>
               </GlareCard>
 
@@ -61,7 +61,6 @@ const Portfolio = () => {
                 </p>
               </div>
             </div>
-            
           ))
         }
       </div>

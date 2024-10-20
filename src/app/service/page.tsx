@@ -7,9 +7,9 @@ import React from 'react'
 
 const Service = () => {
   return (
-    <div className='flex text-black py-[100px] text-[15px] px-5 mx-[23px]'>
+    <div className='flex text-black py-[100px] text-[15px] px-5 mx-[23px] w-full'>
       {/*  */}
-      <div className=''>
+      <div className='w-full'>
         <Title>{'// Top Notch Services'}</Title>
         <div className='grid grid-cols-3 gap-10 mt-[60px]'>
         {

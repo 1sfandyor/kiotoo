@@ -19,7 +19,7 @@ const Home = () => {
 
         <div  className='border pt-2.5 transform -rotate-y-[20deg]'>
           <div className='relative right-3'>
-            <GlareCard width={310} height={400} className="flex flex-col items-center justify-center ">
+            <GlareCard  className="flex flex-col items-center justify-center ">
               <p className="text-white font-bold text-3xl mt-4 uppercase">Any size</p>
             </GlareCard>
           </div>

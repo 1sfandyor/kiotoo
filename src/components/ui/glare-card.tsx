@@ -5,12 +5,8 @@ import { useRef } from "react";
 export const GlareCard = ({
   children,
   className,
-  width,
-  height
 }: {
   children: React.ReactNode;
-  height: number
-  width: number
   className?: string;
 }) => {
   const isPointerInside = useRef(false);
@@ -70,9 +66,8 @@ export const GlareCard = ({
     }
   };
   return (
-    <div
-      style={containerStyle}
-      className={`relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform w-[${width}px] h-[${height}px] [aspect-ratio:17/21]`}
+    <div style={containerStyle}
+      className={`relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform w-full [aspect-ratio:17/21]`}
       ref={refElement}
       onPointerMove={(event) => {
         const rotateFactor = 0.4;

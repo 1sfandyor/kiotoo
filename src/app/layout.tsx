@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import React from 'react';
 
 import "./globals.css";
 import { Syne } from "@/utils/customFont";
+import dynamic from 'next/dynamic'
+import Navbar from "@/components/Navbar";
 import SideBar from "@/components/Sidebar";
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,14 +13,31 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{children: React.ReactNode;}>) {
-  
+  const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
+    ssr: false
+  });
+
+  // State to track if the component has mounted
+
   return (
     <html lang="en">
       <body className={`${Syne.variable} font-normal  w-full! min-h-screen bg-[#f9f9f9]`}>
-        <div className="flex !w-full items-start grow-1 ">
+        
+        <Navbar/>
+
+        <section className="flex !w-full items-start grow-1 ">
+          <AnimatedCursor color='0, 0, 0'
+            innerSize={5}
+            outerSize={35}
+            innerScale={1}
+            outerScale={1.7}
+            outerAlpha={0}
+            outerStyle={{border: '1px solid #000'}}
+            showSystemCursor={true}
+          />
           <SideBar/>
           {children}
-        </div>
+        </section>
       </body>
     </html>
   );

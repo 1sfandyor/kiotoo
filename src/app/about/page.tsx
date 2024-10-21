@@ -16,7 +16,7 @@ const About = () => {
     <div className='flex flex-col w-full text-black py-[110px] text-[15px] px-5 mx-[23px]'>
       
       {/* BIOGRAPHY */}
-      <div className='w-full flex items-center justify-between pb-[100px] mb-[100px] border-b border-gray-1'>
+      <div className='w-full flex items-center justify-between pb-[100px] mb-[100px] border-b border-gray-1' >
         <div className='pr-[50px] w-1/2'>
           <Title>{'// Biography'}</Title>
           <p className='mt-[50px] mb-[30px] text-gray-2 w-full'>

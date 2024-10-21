@@ -7,27 +7,28 @@ const Home = () => {
   const words = ["freelance", "developer", "analyzer"];
 
   return (
-      <section className='flex flex-col container items-center h-screen justify-start perspective-800'>
+      <div className='flex flex-col md:flex-row container items-center md:items-start lg:items-center md:justify-around h-screen justify-start perspective-800'>
         
-        <div className='flex flex-col items-start justify-center mr-10 w-[464px]'>
-          <h3 className='text-gray-2 uppercase text-[25px]  mb-3'>{'// Jessica Parker'}</h3>
-          <h1 className='text-[31px] mb-10 text-black leading-10 uppercase font-bold'>
-            creative designer <br /> and 
-            <FlipWords words={words} />
+        <div className='flex flex-col items-start justify-center mb-10 '>
+          <h3 className='text-gray-2 uppercase text-[14px]  mb-3'>{'// Jessica Parker'}</h3>
+
+          <h1 className='text-[25px] mb-10 text-black leading-10 uppercase font-bold'>
+            creative designer <br className='hidden md:block'/> and 
+            <FlipWords className='px-0 sm:px-2' words={words} />
           </h1>
           <Button>View portfolio</Button>
         </div>
 
         {/* GLARE CARD */}
-        <div  className='border pt-2.5 transform -rotate-y-[20deg]'>
+        <div  className='border pt-2.5 transform lg:-rotate-y-[20deg] w-[220px] h-[292px] relative left-2.5'>
           <div className='relative right-3'>
             <GlareCard  className="flex flex-col items-center justify-center ">
-              <p className="text-white font-bold text-3xl mt-4 uppercase">Any size</p>
+              <p className="text-white font-bold text-xl mt-4 uppercase">Any size</p>
             </GlareCard>
           </div>
         </div>
 
-      </section>
+      </div>
   )
 }
 

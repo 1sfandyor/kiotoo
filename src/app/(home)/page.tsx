@@ -7,9 +7,10 @@ const Home = () => {
   const words = ["freelance", "developer", "analyzer"];
 
   return (
-      <div className='flex items-center w-full h-screen justify-start mx-[23.5px] px-5 perspective-800'>
+      <section className='flex flex-col container items-center h-screen justify-start perspective-800'>
+        
         <div className='flex flex-col items-start justify-center mr-10 w-[464px]'>
-          <h3 className='text-gray-2 uppercase text-[17px] mb-3'>{'// Jessica Parker'}</h3>
+          <h3 className='text-gray-2 uppercase text-[25px]  mb-3'>{'// Jessica Parker'}</h3>
           <h1 className='text-[31px] mb-10 text-black leading-10 uppercase font-bold'>
             creative designer <br /> and 
             <FlipWords words={words} />
@@ -17,6 +18,7 @@ const Home = () => {
           <Button>View portfolio</Button>
         </div>
 
+        {/* GLARE CARD */}
         <div  className='border pt-2.5 transform -rotate-y-[20deg]'>
           <div className='relative right-3'>
             <GlareCard  className="flex flex-col items-center justify-center ">
@@ -24,7 +26,8 @@ const Home = () => {
             </GlareCard>
           </div>
         </div>
-      </div>
+
+      </section>
   )
 }
 

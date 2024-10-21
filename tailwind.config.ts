@@ -14,20 +14,19 @@ const addVariablesForColors = plugin(({ addBase, theme }) => {
 });
 
 const config: Config = {
-    darkMode: ["class"],
-    content: [
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-
+  darkMode: ["class"],
+  content: [
+  "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+  "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	extend: {
-  		borderRadius: {
+		extend: {
+			borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		},
-  		colors: {
+			},
+			colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
 				gray: {
@@ -82,7 +81,7 @@ const config: Config = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			}
-  		},
+			},
 			fontFamily: {
 				syne: ['var(--font-syne)']
 			},
@@ -97,12 +96,45 @@ const config: Config = {
           },
         },
       },
-  	}
+			container: {
+        center: true,
+        padding: '20px',
+        screens: {
+          DEFAULT: '1240px',
+        },
+      },
+		},
+
+		// SCREENS
+		screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    }
   },
   plugins: [
 		// eslint-disable-next-line @typescript-eslint/no-require-imports
 		require("@xpd/tailwind-3dtransforms"),
-		addVariablesForColors
+		addVariablesForColors,
+		plugin(function({ addComponents }) {
+      addComponents({
+        '.container': {
+          height: 'auto',
+          position: 'relative',
+        },
+      })
+    }),
 	],
 };
 

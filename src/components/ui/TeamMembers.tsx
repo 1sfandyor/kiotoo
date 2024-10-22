@@ -4,6 +4,7 @@ import { faFacebookF,faBehance, faTiktok, faDribbble } from '@fortawesome/free-b
 import { GlareCard } from './glare-card';
 import { Separator } from './separator';
 import Link from 'next/link';
+import Title from '../Title';
 
 export default function TeamMembers() {
   const teamMembers = [
@@ -13,17 +14,17 @@ export default function TeamMembers() {
   ]
 
   return (
-      <div className="w-full">
-        <h2 className="text-2xl font-bold mb-8 text-gray-800">{'// TEAM MEMBERS'}</h2>
+      <div className="w-full border-b border-gray-1 pb-[110px] mb-[100px]">
+        <Title className="mb-[60px]">{'// TEAM MEMBERS'}</Title>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member) => (
 
             <div key={member.name} className='border p-2.5 '>
               {/* CARD */}
-              <GlareCard className="flex flex-col items-center justify-center">
-                <p className="text-white font-bold text-2xl mt-4 uppercase">Any size</p>
-              </GlareCard>
+                <GlareCard className="flex flex-col items-center justify-center" aspect='21/21' >
+                  <p className="text-white font-bold text-2xl mt-4 uppercase">Any size</p>
+                </GlareCard>
 
               <Separator className='mt-2.5'/>
 
@@ -37,7 +38,7 @@ export default function TeamMembers() {
                   </p>
                 </div>
 
-                <div className="flex space-x-2">
+                <div className="flex space-x-2 px-5 py-4">
                   <SocialIcon Icon={faBehance} label="Behance" />
                   <SocialIcon Icon={faTiktok} label="TikTok" />
                   <SocialIcon Icon={faFacebookF} label="Facebook" />
@@ -53,8 +54,8 @@ export default function TeamMembers() {
 
 function SocialIcon({ Icon, label }: { Icon: IconProp; label: string }) {
   return (
-    <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors" aria-label={`${label} profile`}>
-      <FontAwesomeIcon icon={Icon} />
+    <a href="#" className="w-[25px] h-[25px] border border-gray-1 flex items-center justify-center" aria-label={`${label} profile`}>
+      <FontAwesomeIcon width={12} hanging={12} icon={Icon} className='text-gray-2 !w-[12px] !h-[12px]' />
     </a>
   )
 }

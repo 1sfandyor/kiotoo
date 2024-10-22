@@ -60,7 +60,7 @@ type DataItem = {
 
 function Section({ title, data }: { title: string; data: DataItem[] }) {
   return (
-    <div>
+    <div className={`${title === 'EXPERIENCE' && 'border-b border-gray-1 mb-[100px] pb-[110px]'} mb-10 `}>
       <Title className="mb-2.5">{`// ${title}`}</Title>
       <div className="space-y-6">
         {data.map((item: DataItem, index: number) => (
@@ -74,11 +74,11 @@ function Section({ title, data }: { title: string; data: DataItem[] }) {
 function Entry({ institution, company, degree, position, period }: { institution?: string; company?: string; degree?: string; position?: string; period: string}) {
   return (
     <div className="flex justify-between items-start">
-      <div>
+      <div className="pr-[30px]">
         <h3 className="font-semibold text-lg">{institution || company}</h3>
         <p className="text-gray-2 font-[15px]">{degree || position}</p>
       </div>
-      <div className="border border-gray-1 px-5 py-2.5 text-gray-2 text-xs">
+      <div className="border border-gray-1 px-5 py-2.5 text-gray-2 text-[15px] xl:text-xs">
         {period}
       </div>
     </div>

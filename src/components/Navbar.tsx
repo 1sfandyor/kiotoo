@@ -2,13 +2,14 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { Sheet, SheetContent } from './ui/sheet'
+import MobileMenu from './mobileMenu'
 
 const Navbar = () => {
 
   const [open, setOpen] = useState(false);
 
   return (
-    <header className='flex lg:hidden w-full mb-7'>
+    <header className='flex xl:hidden w-full mb-7 z-[100]'>
       <nav className="bg-white w-full border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -24,10 +25,8 @@ const Navbar = () => {
           </button>
 
           <Sheet open={open} onOpenChange={() => setOpen(false)}>
-            <SheetContent className='p-0'>
-              <div className='flex flex-col bg-white w-full h-screen'>
-                
-              </div>
+            <SheetContent className='p-0 border-none bg-white py-10'>
+              <MobileMenu/>
             </SheetContent>
           </Sheet>
         </div>

@@ -20,7 +20,7 @@ const SideBar = () => {
   // DESKTOP
   if (isDesktop) {
     return (
-      isMounted && (<aside className=" bg-white lg:flex lg:items-center min-w-[350px] h-screen overflow-y-auto px-[70px] border-r bg-background lg:sticky top-0">
+      isMounted && (<aside className="hidden bg-white xl:flex xl:items-center min-w-[350px] h-screen overflow-y-auto px-[70px] border-r bg-background xl:sticky top-0">
         <ScrollArea className="flex flex-col items-start justify-center pt-2.5 w-full">
           <Image src={'/dark.png'} alt="Logo" width={150} height={30} />
           <ol className="flex flex-col items-start py-[50px] w-full">

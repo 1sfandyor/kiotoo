@@ -71,9 +71,10 @@ export default function InfiniteTestimonials() {
   }, [api])
 
   return (
-    <section className="w-full">
-      <div className="max-w-7xl px-4 ">
-        <Title>{'What Our Clients Say'}</Title>
+    <section className="w-full pb-[100px]">
+      <Title className='mb-[60px]'>{'// Clients Testimonials'}</Title>
+
+      <div className="lg:max-w-7xl lg:px-4 ">
         <Carousel 
           setApi={setApi} 
           opts={{
@@ -85,21 +86,19 @@ export default function InfiniteTestimonials() {
           <CarouselContent className="-ml-4">
             {extendedTestimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2">
-                <Card className="border-none shadow-md h-full">
-                  <CardContent className="flex flex-col p-6 h-full">
-                    <blockquote className="text-gray-600 italic mb-4 flex-grow">{testimonial.quote}</blockquote>
-                    <div className="flex items-center mt-4">
-                      <div className="flex-shrink-0 mr-4">
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          width={50}
-                          height={50}
-                          className="rounded-full"
-                        />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                <Card className="border border-gray-1 shadow-md bg-transparent h-full rounded-none">
+                  <CardContent className=" flex flex-col text-gray-2 p-9 xl:p-6 h-full">
+                    <blockquote className="text-gray-600 italic pb-[30px] mb-[30px] border-b border-gray-1">{testimonial.quote}</blockquote>
+                    <div className="flex items-center">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        width={50}
+                        height={50}
+                        className="rounded-full bg-gray-2/30 mr-5 w-[50px] h-[50px]"
+                      />
+                      <div className='flex flex-col items-start'>
+                        <div className="font-semibold text-gray-900 text-base text-nowrap">{testimonial.name}</div>
                         <div className="text-gray-600">{testimonial.title}</div>
                       </div>
                     </div>

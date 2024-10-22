@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Check } from "lucide-react"
+import Title from "./Title"
 
 const interestsData = [
   "Web Design",
@@ -32,13 +33,13 @@ export default function Interest() {
 
 function Section({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="border-b border-gray-2 mb-[100px] pb-[100px]">
-      <h2 className="text-lg font-semibold mb-6">{`// ${title}`}</h2>
+    <div className={`${title === 'AWARDS' && "border-b border-gray-1 mb-[100px] pb-[100px]"} mb-10`}>
+      <Title className="mb-[50px]">{`// ${title}`}</Title>
       <ul className="space-y-2">
         {items.map((item, index) => (
-          <li key={index} className="flex items-center">
-            <Check className="w-4 h-4 mr-2 text-gray-600" />
-            <span>{item}</span>
+          <li key={index} className="flex items-center text-gray-2">
+            <Check className="w-4 h-4 mr-2" />
+            <span className="text-[15px]">{item}</span>
           </li>
         ))}
       </ul>

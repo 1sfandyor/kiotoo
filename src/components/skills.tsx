@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Progress } from "@/components/ui/progress"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import Title from "./Title"
 
 const skills = {
   programming: [
@@ -19,8 +20,8 @@ export default function Skills() {
   return (
     <ScrollArea className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <SkillSection title="PROGRAMMING SKILLS" skills={skills.programming} />
-        <SkillSection title="LANGUAGE SKILLS" skills={skills.language} />
+        <SkillSection title="// PROGRAMMING SKILLS" skills={skills.programming} />
+        <SkillSection title="// LANGUAGE SKILLS" skills={skills.language} />
       </div>
     </ScrollArea>
   )
@@ -28,8 +29,8 @@ export default function Skills() {
 
 function SkillSection({ title, skills }: { title: string; skills: { name: string; value: number }[] }) {
   return (
-    <div className="border-b border-gray-1 pb-[100px] mb-[100px]">
-      <h2 className="text-lg font-mono mb-4">{title}</h2>
+    <div className={`${title === '// LANGUAGE SKILLS' && 'pb-[110px] mb-[100px] border-b border-gray-1'} border-gray-1 mb-[60px]`}>
+      <Title className="mb-[52px]">{title}</Title>
       <div className="space-y-6">
         {skills.map((skill) => (
           <div key={skill.name}>

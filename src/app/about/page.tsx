@@ -3,7 +3,7 @@ import {InfiniteTestimonials} from '@/components/ClientTestimonials'
 import Education from '@/components/Edu'
 import FunFact from '@/components/FunFacts'
 import Interest from '@/components/Interest'
-import { Partners } from '@/components/Partners'
+// import { Partners } from '@/components/Partners'
 import Skills from '@/components/skills'
 import TeamMembers from '@/components/ui/TeamMembers'
 import React from 'react'
@@ -28,13 +28,14 @@ const About = () => {
       <FunFact/>
 
       {/* TRUSTED PARTNERS */}
-      <Partners/>
+      {/* <Partners/> */}
 
       {/* TEAM MEMBERS */}
       <TeamMembers/>
 
       {/* CLIENT TESTIMONIALS */}
       <InfiniteTestimonials/>
+
     </div>
   )
 }

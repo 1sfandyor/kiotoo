@@ -19,7 +19,7 @@ export default function Biography() {
 
 function BiographySection({ title }: { title: string }) {
   return (
-    <div className={`w-full xl:w-[444px] 2xl:w-[464px] 4xl:w-1/2 md:pr-[25px] mb-[60px]`}>
+    <div className={`w-full md:pr-[25px] mb-[60px]`}>
       <Title className="mb-[52px]">{title}</Title>
       <p className="mb-[30px] text-gray-2 w-full">
         {biographyText}
@@ -33,7 +33,7 @@ function BiographySection({ title }: { title: string }) {
 
 function PersonalDetailsSection({ title }: { title: string }) {
   return (
-    <div className="md:pr-[25px] xl:pl-[50px] w-full xl:w-[444px] 2xl:w-[464px] 4xl:w-1/2">
+    <div className="md:pr-[25px] xl:pl-[50px] w-full">
       <Title className="mb-[52px]">{title}</Title>
       <PersonalInfo />
     </div>

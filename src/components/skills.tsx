@@ -26,7 +26,7 @@ export default function Skills() {
 
 function SkillSection({ title, skills }: { title: string; skills: { name: string; value: number }[] }) {
   return (
-    <div className={`${title === '// LANGUAGE SKILLS' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 md:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} lg:pr-[50px] border-b border-gray-1 mb-[60px] md:w-full xl:w-[444px] 2xl:w-[464px]`}>
+    <div className={`${title === '// LANGUAGE SKILLS' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 md:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} lg:pr-[50px] border-b border-gray-1 mb-[60px] w-full`}>
       <Title className="mb-[52px]">{title}</Title>
       <div className="space-y-6">
         {skills.map((skill) => (

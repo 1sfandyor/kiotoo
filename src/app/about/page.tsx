@@ -10,7 +10,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className='flex flex-col w-full text-black container xl:py-[110px] text-[15px]'>
+    <div className='flex flex-col text-black container xl:py-[110px] text-[15px]'>
       
       {/* BIOGRAPHY */}
       <Biography/>

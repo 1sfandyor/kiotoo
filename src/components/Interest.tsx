@@ -29,7 +29,7 @@ export default function Interest() {
 
 function Section({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className={`${title === 'AWARDS' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 md:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} lg:pr-[50px] border-b border-gray-1 mb-[60px] md:w-full xl:w-[444px] 2xl:w-[464px]`}>
+    <div className={`${title === 'AWARDS' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 md:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} w-full lg:pr-[50px] border-b border-gray-1 mb-[60px]`}>
       <Title className="mb-[50px]">{`// ${title}`}</Title>
       <ul className="space-y-2 mb-[60px] md:mb-0">
         {items.map((item, index) => (

@@ -17,5 +17,3 @@ export function Partners() {
     </div>
   );
 }
-
-

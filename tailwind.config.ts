@@ -99,9 +99,29 @@ const config: Config = {
 			container: {
         center: true,
         padding: '20px',
-        screens: {
-          DEFAULT: '1240px',
-        },
+        // SCREENS
+				screens: {
+					'sm': '640px',
+					// => @media (min-width: 640px) { ... }
+
+					'md': '768px',
+					// => @media (min-width: 768px) { ... }
+
+					'lg': '1024px',
+					// => @media (min-width: 1024px) { ... }
+
+					'xl': '1280px',
+					// => @media (min-width: 1280px) { ... }
+
+					'2xl': '1360px',
+					// => @media (min-width: 1360px) { ... }
+
+					'3xl': '1440px',
+					// => @media (min-width: 1440px) { ... }
+
+					'4xl': '1536px',
+					// => @media (min-width: 1536px) { ... }
+				}
       },
 		},
 

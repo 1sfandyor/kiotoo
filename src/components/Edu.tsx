@@ -60,7 +60,7 @@ type DataItem = {
 
 function Section({ title, data }: { title: string; data: DataItem[] }) {
   return (
-    <div className={`${title === 'EXPERIENCE' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 md:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} lg:pr-[50px] border-b border-gray-1 mb-[60px] md:w-full xl:w-[444px] 2xl:w-[464px]`}>
+    <div className={`${title === 'EXPERIENCE' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 md:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} lg:pr-[50px] border-b border-gray-1 mb-[60px] w-full`}>
       <Title className="mb-2.5">{`// ${title}`}</Title>
       <div className="space-y-6">
         {data.map((item: DataItem, index: number) => (

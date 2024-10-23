@@ -20,12 +20,10 @@ const awardsData = [
 
 export default function Interest() {
   return (
-      <div className="w-full">
         <div className="flex flex-col md:flex-row">
           <Section title="INTERESTS" items={interestsData} />
           <Section title="AWARDS" items={awardsData} />
         </div>
-    </div>
   )
 }
 

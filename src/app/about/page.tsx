@@ -1,5 +1,5 @@
 import Biography from '@/components/Biography'
-import InfiniteTestimonials from '@/components/ClientTestimonials'
+import {InfiniteTestimonials} from '@/components/ClientTestimonials'
 import Education from '@/components/Edu'
 import FunFact from '@/components/FunFacts'
 import Interest from '@/components/Interest'

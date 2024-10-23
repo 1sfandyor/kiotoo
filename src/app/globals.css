@@ -141,14 +141,4 @@ body {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
-}
-
-.swiper-wrapper{
-  display: flex;
-  align-items: stretch !important;
-  flex-grow: 1;
-}
-.swiper-slide{
-  align-self: stretch;
 }

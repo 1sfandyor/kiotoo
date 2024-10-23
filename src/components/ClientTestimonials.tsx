@@ -31,8 +31,9 @@ export function InfiniteTestimonials() {
   ]
 
   return (
-    <div className="rounded-md flex flex-col dark:bg-black dark:bg-grid-white/[0.05]  justify-center relative overflow-hidden border-b border-gray-1 pb-[110px] mb-[100px]">
+    <div className="flex flex-col dark:bg-black relative overflow-hidden border-b border-gray-1 pb-[110px] mb-[100px]">
       <Title className="mb-[60px]">{'// Trusted parners'}</Title>
+
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -58,27 +59,26 @@ export function InfiniteTestimonials() {
             spaceBetween: 10,
           },
         }}
-        className=" !flex !bg-red-300 h-full"
         modules={[Autoplay]}
       >
         {
           testimonials.map(item => (
-            <SwiperSlide key={item.title} className='border border-gray-2 h-full self-stretch bg-transparent rounded-none'>
+            <SwiperSlide key={item.title} className='border border-gray-2 bg-transparent rounded-none'>
               <div className='flex flex-col text-gray-2 p-9 xl:p-6 h-full self-stretch'>
                 <span className="text-justify text-gray-600 italic pb-[30px] mb-[30px] border-b  border-gray-1">{item.quote}</span>
                 <div className="flex items-center">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        width={50}
-                        height={50}
-                        className="rounded-full bg-gray-2/30 mr-5 w-[50px] h-[50px]"
-                      />
-                      <div className='flex flex-col items-start'>
-                        <div className="font-semibold text-gray-900 text-base text-nowrap">{item.name}</div>
-                        <div className="text-gray-600">{item.title}</div>
-                      </div>
-                    </div>
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={50}
+                    height={50}
+                    className="rounded-full bg-gray-2/30 mr-5 w-[50px] h-[50px]"
+                  />
+                  <div className='flex flex-col items-start'>
+                    <div className="font-semibold text-gray-900 text-base text-nowrap">{item.name}</div>
+                    <div className="text-gray-600">{item.title}</div>
+                  </div>
+                </div>
               </div>
             </SwiperSlide>
           ))

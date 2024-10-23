@@ -22,7 +22,7 @@ export default function TeamMembers() {
 
             <div key={member.name} className='border p-2.5 '>
               {/* CARD */}
-                <GlareCard className="flex flex-col items-center justify-center" aspect='21/21' >
+                <GlareCard className="flex flex-col items-center justify-center" aspect='[aspect-ratio:21/21]' >
                   <p className="text-white font-bold text-2xl mt-4 uppercase">Any size</p>
                 </GlareCard>
 

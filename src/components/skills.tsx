@@ -19,7 +19,7 @@ const skills = {
 export default function Skills() {
   return (
     <ScrollArea className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="flex flex-col md:flex-row">
         <SkillSection title="// PROGRAMMING SKILLS" skills={skills.programming} />
         <SkillSection title="// LANGUAGE SKILLS" skills={skills.language} />
       </div>
@@ -29,8 +29,8 @@ export default function Skills() {
 
 function SkillSection({ title, skills }: { title: string; skills: { name: string; value: number }[] }) {
   return (
-    <div className={`${title === '// LANGUAGE SKILLS' && 'pb-[110px] mb-[100px] border-b border-gray-1'} border-gray-1 mb-[60px]`}>
-      <Title className="mb-[52px]">{title}</Title>
+    <div className={`${title === '// LANGUAGE SKILLS' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 md:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} lg:pr-[50px] border-b border-gray-1 mb-[60px] md:w-full xl:w-[444px] 2xl:w-[464px]`}>
+      <Title className="mb-[52px] text-nowrap">{title}</Title>
       <div className="space-y-6">
         {skills.map((skill) => (
           <div key={skill.name}>

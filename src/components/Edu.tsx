@@ -41,7 +41,7 @@ export default function Education() {
   return (
     <div className="text-sm bg-white bg-opacity-50 bg-grid-gray-100/[0.2] ">
       <div className="w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col md:flex-row">
           <Section title="EDUCATION" data={educationData} />
           <Section title="EXPERIENCE" data={experienceData} />
         </div>
@@ -60,7 +60,7 @@ type DataItem = {
 
 function Section({ title, data }: { title: string; data: DataItem[] }) {
   return (
-    <div className={`${title === 'EXPERIENCE' && 'border-b border-gray-1 mb-[100px] pb-[110px]'} mb-10 `}>
+    <div className={`${title === 'EXPERIENCE' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 md:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} lg:pr-[50px] border-b border-gray-1 mb-[60px] md:w-full xl:w-[444px] 2xl:w-[464px]`}>
       <Title className="mb-2.5">{`// ${title}`}</Title>
       <div className="space-y-6">
         {data.map((item: DataItem, index: number) => (

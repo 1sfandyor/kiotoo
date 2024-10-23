@@ -119,7 +119,13 @@ const config: Config = {
       'xl': '1280px',
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1536px',
+			'2xl': '1360px',
+      // => @media (min-width: 1360px) { ... }
+
+			'3xl': '1440px',
+      // => @media (min-width: 1440px) { ... }
+
+      '4xl': '1536px',
       // => @media (min-width: 1536px) { ... }
     }
   },

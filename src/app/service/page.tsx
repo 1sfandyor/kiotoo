@@ -7,11 +7,11 @@ import React from 'react'
 
 const Service = () => {
   return (
-    <div className='flex text-black py-[100px] text-[15px] px-5 mx-[23px] w-full'>
+    <div className='flex text-black py-[100px] text-[15px] xl:px-[20px] mx-[23px] w-full'>
       {/*  */}
-      <div className='w-full'>
+      <div className='w-full flex-col'>
         <Title>{'// Top Notch Services'}</Title>
-        <div className='grid grid-cols-3 gap-10 mt-[60px]'>
+        <div className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-10 mt-[60px]'>
         {
           services.map((service, i) => (
             <SpotlightCard key={i} className="px-[45px] py-[50px] ">

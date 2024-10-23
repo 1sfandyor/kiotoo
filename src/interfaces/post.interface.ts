@@ -5,4 +5,5 @@ export interface PostPorps {
   postedAt: string
   className?: string;
   isHidden?: boolean;
+  isMobile?: boolean
 } 

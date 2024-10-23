@@ -17,10 +17,10 @@ import Link from 'next/link';
 
 const Portfolio = () => {
   return (
-    <div className='flex flex-col  text-black w-full py-[95px] pb-[80px] text-[15px] px-5 mx-[23px]'>
+    <div className='flex flex-col text-black w-full 2xl:py-[95px] pb-[80px] text-[15px] 2xl:px-5 mx-[23px]'>
       {/* TOP */}
-      <div className='flex items-center justify-between mb-[70px]'>
-        <Title>{'// Creative Portfolio'}</Title>
+      <div className='flex flex-col items-center justify-between mb-[30px] 2xl:mb-[70px]'>
+        <Title className='mb-[50px]'>{'// Creative Portfolio'}</Title>
         <Breadcrumb>
           <BreadcrumbList>
             {
@@ -40,7 +40,7 @@ const Portfolio = () => {
       </div>
 
       {/* CONTENT */}
-      <div className='grid gap-7 grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
+      <div className='grid gap-7 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
         {
           portfolio.map(card => (
             <div key={card.id} className='border p-2.5 '>

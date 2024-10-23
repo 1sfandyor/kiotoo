@@ -41,7 +41,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <div className="w-full ">
+    <div className="w-full">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -122,14 +122,14 @@ export const ContactForm = () => {
             )}
           />
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <div className="bg-gray-600 text-white p-2  text-center w-full sm:w-auto">23875</div>
+            <div className="bg-gray-600 text-white p-3 h-full self-start text-center w-full sm:w-auto">23875</div>
             <FormField
               control={form.control}
               name="captcha"
               render={({ field }) => (
-                <FormItem className="w-full">
+                <FormItem className="w-full !ml-0">
                   <FormControl>
-                    <Input placeholder="Please Enter Code" {...field} className="w-full px-5 py-[5px] h-[50px]" />
+                    <Input placeholder="Please Enter Code" {...field} className="w-full px-5 py-[3px] h-[50px] !rounded-none" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

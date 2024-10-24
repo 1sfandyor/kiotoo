@@ -203,26 +203,30 @@ const ShaderMaterial = ({
     }
     lastFrameTime = timestamp;
 
-    const material: any = ref.current.material;
+    const material = ref.current.material as THREE.ShaderMaterial;
     const timeLocation = material.uniforms.u_time;
     timeLocation.value = timestamp;
   });
 
   const getUniforms = () => {
-    const preparedUniforms: any = {};
+    const preparedUniforms: Record<string, { value: number[] | number[][] | number | THREE.Vector3; type: string }> = {};
 
     for (const uniformName in uniforms) {
-      const uniform: any = uniforms[uniformName];
+      const uniform: { value: number[] | number[][] | number; type: string } = uniforms[uniformName];
 
       switch (uniform.type) {
         case "uniform1f":
           preparedUniforms[uniformName] = { value: uniform.value, type: "1f" };
           break;
         case "uniform3f":
-          preparedUniforms[uniformName] = {
-            value: new THREE.Vector3().fromArray(uniform.value),
-            type: "3f",
-          };
+          if (Array.isArray(uniform.value)) {
+            preparedUniforms[uniformName] = {
+              value: uniform.value.map((v: number[]) =>
+                new THREE.Vector3().fromArray(v)
+              ) as THREE.Vector3[], // Cast to Vector3[]
+              type: "3fv",
+            };
+          }
           break;
         case "uniform1fv":
           preparedUniforms[uniformName] = { value: uniform.value, type: "1fv" };
@@ -305,3 +309,4 @@ interface ShaderProps {
   };
   maxFps?: number;
 }
+

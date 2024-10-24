@@ -46,15 +46,7 @@ export function InfiniteTestimonials() {
         }}
         loop={true}
         breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          1024: {
+          1280: {
             slidesPerView: 2,
             spaceBetween: 10,
           },
@@ -63,7 +55,7 @@ export function InfiniteTestimonials() {
       >
         {
           testimonials.map(item => (
-            <SwiperSlide key={item.title} className='border border-gray-2 bg-transparent rounded-none'>
+            <SwiperSlide key={item.title} className='border border-gray-1 bg-transparent rounded-none'>
               <div className='flex flex-col text-gray-2 p-9 xl:p-6 h-full self-stretch'>
                 <span className="text-justify text-gray-600 italic pb-[30px] mb-[30px] border-b  border-gray-1">{item.quote}</span>
                 <div className="flex items-center">

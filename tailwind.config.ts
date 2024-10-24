@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 import plugin from 'tailwindcss/plugin';
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
+import { keepTheme } from "keep-react/keepTheme";
 
 const addVariablesForColors = plugin(({ addBase, theme }) => {
   const allColors = flattenColorPalette(theme("colors"));
@@ -164,4 +165,4 @@ const config: Config = {
 	],
 };
 
-export default config;
+export default keepTheme(config);

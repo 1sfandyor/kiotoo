@@ -20,7 +20,7 @@ const awardsData = [
 
 export default function Interest() {
   return (
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col mid:flex-row">
           <Section title="INTERESTS" items={interestsData} />
           <Section title="AWARDS" items={awardsData} />
         </div>
@@ -29,7 +29,7 @@ export default function Interest() {
 
 function Section({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className={`${title === 'AWARDS' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 md:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} w-full lg:pr-[50px] border-b border-gray-1 mb-[60px]`}>
+    <div className={`${title === 'AWARDS' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 mid:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} w-full lg:pr-[50px] border-b border-gray-1 mb-[60px]`}>
       <Title className="mb-[50px]">{`// ${title}`}</Title>
       <ul className="space-y-2 mb-[60px] md:mb-0">
         {items.map((item, index) => (

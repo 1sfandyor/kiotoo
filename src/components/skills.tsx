@@ -17,7 +17,7 @@ const skills = {
 
 export default function Skills() {
   return (
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col xl:flex-row">
         <SkillSection title="// PROGRAMMING SKILLS" skills={skills.programming} />
         <SkillSection title="// LANGUAGE SKILLS" skills={skills.language} />
       </div>
@@ -26,7 +26,7 @@ export default function Skills() {
 
 function SkillSection({ title, skills }: { title: string; skills: { name: string; value: number }[] }) {
   return (
-    <div className={`${title === '// LANGUAGE SKILLS' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1 md:pl-[50px] xl:md-0 lg:pl-[50px] lg:pr-0'} lg:pr-[50px] border-b border-gray-1 mb-[60px] w-full`}>
+    <div className={`${title === '// LANGUAGE SKILLS' && 'pb-[110px] md:pb-[60px] mb-[100px] border-b border-gray-1  xl:pl-[50px] xl:pr-0'} xl:pr-[50px] border-b border-gray-1 mb-[60px] w-full`}>
       <Title className="mb-[52px]">{title}</Title>
       <div className="space-y-6">
         {skills.map((skill) => (

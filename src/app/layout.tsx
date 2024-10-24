@@ -21,11 +21,12 @@ export default function RootLayout({ children }: Readonly<{children: React.React
 
   return (
     <html lang="en" className="scrollbar-thumb-sky-700 scrollbar-track-sky-300">
+
       <body className={`${Syne.variable} font-normal  w-full! min-h-screen bg-[#f9f9f9] `}>
         
         <Navbar/>
 
-        <section className="flex !w-full items-start grow-1 scrollbar-thin">
+        <section className="flex !w-full items-start grow-1 scrollbar-thin"        >
           <AnimatedCursor color='0, 0, 0'
             innerSize={5}
             outerSize={35}

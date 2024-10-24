@@ -31,7 +31,7 @@ export function InfiniteTestimonials() {
   ]
 
   return (
-    <div className="flex flex-col dark:bg-black relative overflow-hidden border-b border-gray-1 pb-[110px] mb-[100px]">
+    <div className="flex flex-col dark:bg-black relative overflow-hidden ">
       <Title className="mb-[60px]">{'// Trusted parners'}</Title>
 
       <Swiper

@@ -9,7 +9,7 @@ const biographyText = `Hi, my name is Jessica Parker and I began using WordPress
 export default function Biography() {
   return (
     <ScrollArea className="w-full">
-      <div className="flex flex-col md:flex-row md:items-start items-center pb-[100px] mb-[100px] border-b border-gray-1">
+      <div className="flex flex-col xl:flex-row md:items-start items-center pb-[100px] mb-[100px] border-b border-gray-1">
         <BiographySection title="// Biography" />
         <PersonalDetailsSection title="// Personal Details" />
       </div>

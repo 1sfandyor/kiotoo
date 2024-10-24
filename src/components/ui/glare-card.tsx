@@ -69,7 +69,7 @@ export const GlareCard = ({
   };
   return (
     <div style={containerStyle}
-      className={`relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-&lsqb;var(--duration)&rsqb; ease-[var(--easing)] delay-&lsqb;var(--delay)&rsqb; will-change-transform w-full ${aspect ? aspect : '[aspect-ratio:17/21]'}`}
+      className={`relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-&lsqb;var(--duration)&rsqb; ease-&lsqb;var(--easing)&rsqb; delay-&lsqb;var(--delay)&rsqb; will-change-transform w-full ${aspect ? aspect : '[aspect-ratio:17/21]'}`}
       ref={refElement}
       onPointerMove={(event) => {
         const rotateFactor = 0.4;
@@ -118,13 +118,13 @@ export const GlareCard = ({
         }
       }}
     >
-      <div className="h-full grid will-change-transform origin-center transition-transform duration-&lsqb;var(--duration)&rsqb; ease-[var(--easing)] delay-&lsqb;var(--delay)&rsqb; [transform:rotateY(var(--r-x))_rotateX(var(--r-y))]  hover:[--opacity:1] hover:[--duration:200ms] hover:[--easing:linear] hover:filter-none overflow-hidden">
+      <div className="h-full grid will-change-transform origin-center transition-transform duration-&lsqb;var(--duration)&rsqb; ease-&lsqb;var(--easing)&rsqb; delay-&lsqb;var(--delay)&rsqb; [transform:rotateY(var(--r-x))_rotateX(var(--r-y))]  hover:[--opacity:1] hover:[--duration:200ms] hover:[--easing:linear] hover:filter-none overflow-hidden">
         <div className="w-full h-full grid [grid-area:1/1] mix-blend-soft-light">
           <div className={cn("h-full w-full bg-gray-1/70 -z-50", className)}>
             {children}
           </div>
         </div>
-        <div className="w-full h-full grid [grid-area:1/1] mix-blend-soft-light opacity-[var(--opacity)]  transition-background duration-&lsqb;var(--duration)&rsqb; ease-[var(--easing)] delay-&lsqb;var(--delay)&rsqb; will-change-background [background:radial-gradient(farthest-corner_circle_at_var(--m-x)_var(--m-y),_rgba(255,255,255,0.8)_10%,_rgba(255,255,255,0.65)_20%,_rgba(255,255,255,0)_90%)] !z-50" />
+        <div className="w-full h-full grid [grid-area:1/1] mix-blend-soft-light opacity-[var(--opacity)]  transition-background duration-&lsqb;var(--duration)&rsqb; ease-&lsqb;var(--easing)&rsqb; delay-&lsqb;var(--delay)&rsqb; will-change-background [background:radial-gradient(farthest-corner_circle_at_var(--m-x)_var(--m-y),_rgba(255,255,255,0.8)_10%,_rgba(255,255,255,0.65)_20%,_rgba(255,255,255,0)_90%)] !z-50" />
         <div
           className="w-full h-full grid [grid-area:1/1] mix-blend-color-dodge opacity-[var(--opacity)] will-change-background transition-opacity [background-blend-mode:hue_hue_hue_overlay] [background:var(--pattern),_var(--rainbow),_var(--diagonal),_var(--shade)] relative after:content-[''] after:grid-area-[inherit] after:bg-repeat-[inherit] after:bg-attachment-[inherit] after:bg-origin-[inherit] after:bg-clip-[inherit] after:bg-[inherit] after:mix-blend-exclusion after:[background-size:var(--foil-size),_200%_400%,_800%,_200%] after:[background-position:center,_0%_var(--bg-y),_calc(var(--bg-x)*_-1)_calc(var(--bg-y)*_-1),_var(--bg-x)_var(--bg-y)] after:[background-blend-mode:soft-light,_hue,_hard-light]"
           style={{ ...backgroundStyle }}

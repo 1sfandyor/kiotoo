@@ -212,7 +212,7 @@ const ShaderMaterial = ({
     const preparedUniforms: { [key: string]: { value: number[] | number[][] | number | THREE.Vector3 | THREE.Vector2; type: string } } = {};
 
     for (const uniformName in uniforms) {
-      const uniform: unknown = uniforms[uniformName];
+      const uniform: any = uniforms[uniformName];
 
       switch (uniform.type) {
         case "uniform1f":

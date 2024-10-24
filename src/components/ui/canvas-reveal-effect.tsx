@@ -192,7 +192,7 @@ const ShaderMaterial = ({
   uniforms: Uniforms;
 }) => {
   const { size } = useThree();
-  const ref = useRef<THREE.Mesh | null>(null); // Change type to allow null
+  const ref = useRef<THREE.Mesh>();
   let lastFrameTime = 0;
 
   useFrame(({ clock }) => {
@@ -203,30 +203,26 @@ const ShaderMaterial = ({
     }
     lastFrameTime = timestamp;
 
-    const material = ref.current.material as THREE.ShaderMaterial;
+    const material: any = ref.current.material;
     const timeLocation = material.uniforms.u_time;
     timeLocation.value = timestamp;
   });
 
   const getUniforms = () => {
-    const preparedUniforms: Record<string, { value: number[] | number[][] | number | THREE.Vector3; type: string }> = {};
+    const preparedUniforms: any = {};
 
     for (const uniformName in uniforms) {
-      const uniform: { value: number[] | number[][] | number; type: string } = uniforms[uniformName];
+      const uniform: any = uniforms[uniformName];
 
       switch (uniform.type) {
         case "uniform1f":
           preparedUniforms[uniformName] = { value: uniform.value, type: "1f" };
           break;
         case "uniform3f":
-          if (Array.isArray(uniform.value)) {
-            preparedUniforms[uniformName] = {
-              value: uniform.value.map((v: number[]) =>
-                new THREE.Vector3().fromArray(v)
-              ) as THREE.Vector3[], // Cast to Vector3[]
-              type: "3fv",
-            };
-          }
+          preparedUniforms[uniformName] = {
+            value: new THREE.Vector3().fromArray(uniform.value),
+            type: "3f",
+          };
           break;
         case "uniform1fv":
           preparedUniforms[uniformName] = { value: uniform.value, type: "1fv" };
@@ -241,7 +237,6 @@ const ShaderMaterial = ({
           break;
         case "uniform2f":
           preparedUniforms[uniformName] = {
-            
             value: new THREE.Vector2().fromArray(uniform.value),
             type: "2f",
           };
@@ -254,9 +249,7 @@ const ShaderMaterial = ({
 
     preparedUniforms["u_time"] = { value: 0, type: "1f" };
     preparedUniforms["u_resolution"] = {
-      
-      value: new THREE.Vector2(size.width * 2, size.height * 2), // Change type to Vector2
-      type: "2f", // Update type to match Vector2
+      value: new THREE.Vector2(size.width * 2, size.height * 2),
     }; 
     return preparedUniforms;
   };
@@ -288,8 +281,7 @@ const ShaderMaterial = ({
   }, [size.width, size.height, source]);
 
   return (
-    // eslint-disable-next-line @typescript-eslint/no-require-imports  
-    <mesh ref={ref}>
+    <mesh ref={ref as any}>
       <planeGeometry args={[2, 2]} />
       <primitive object={material} attach="material" />
     </mesh>
@@ -313,4 +305,3 @@ interface ShaderProps {
   };
   maxFps?: number;
 }
-

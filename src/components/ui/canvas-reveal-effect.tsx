@@ -192,7 +192,7 @@ const ShaderMaterial = ({
   uniforms: Uniforms;
 }) => {
   const { size } = useThree();
-  const ref = useRef<THREE.Mesh>();
+  const ref = useRef<THREE.Mesh | null>(null); // Change type to allow null
   let lastFrameTime = 0;
 
   useFrame(({ clock }) => {
@@ -241,6 +241,7 @@ const ShaderMaterial = ({
           break;
         case "uniform2f":
           preparedUniforms[uniformName] = {
+            
             value: new THREE.Vector2().fromArray(uniform.value),
             type: "2f",
           };
@@ -253,7 +254,9 @@ const ShaderMaterial = ({
 
     preparedUniforms["u_time"] = { value: 0, type: "1f" };
     preparedUniforms["u_resolution"] = {
-      value: new THREE.Vector2(size.width * 2, size.height * 2),
+      
+      value: new THREE.Vector2(size.width * 2, size.height * 2), // Change type to Vector2
+      type: "2f", // Update type to match Vector2
     }; 
     return preparedUniforms;
   };
@@ -285,7 +288,8 @@ const ShaderMaterial = ({
   }, [size.width, size.height, source]);
 
   return (
-    <mesh ref={ref as any}>
+    // eslint-disable-next-line @typescript-eslint/no-require-imports  
+    <mesh ref={ref}>
       <planeGeometry args={[2, 2]} />
       <primitive object={material} attach="material" />
     </mesh>

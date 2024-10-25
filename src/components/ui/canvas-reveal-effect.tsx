@@ -209,7 +209,7 @@ const ShaderMaterial = ({
   });
 
   const getUniforms = () => {
-    const preparedUniforms: { [key: string]: { value: number[] | number[][] | number | THREE.Vector3 | THREE.Vector2; type: string } } = {};
+    const preparedUniforms: { [key: string]: { value: number[] | number[][] | number | THREE.Vector3 | THREE.Vector2 | THREE.Vector3[]; type: string } } = {};
 
     for (const uniformName in uniforms) {
       // console.log(uniforms[uniformName]); // O'chirildi
@@ -222,7 +222,7 @@ const ShaderMaterial = ({
           break;
         case "uniform3f":
           preparedUniforms[uniformName] = {
-            value: new THREE.Vector3().fromArray(uniform.value as number[]), // to'g'ri tur
+            value: new THREE.Vector3().fromArray(uniform.value as number[]),
             type: "3f",
           };
           break;

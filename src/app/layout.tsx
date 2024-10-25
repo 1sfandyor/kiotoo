@@ -22,7 +22,7 @@ export default function RootLayout({ children }: Readonly<{children: React.React
   return (
     <html lang="en" className="scrollbar-thumb-sky-700 scrollbar-track-sky-300">
 
-      <body className={`${Syne.variable} font-normal  w-full! min-h-screen bg-[#f9f9f9] `}>
+      <body className={`${Syne.variable} font-normal  w-full! min-h-screen bg-[#f9f9f9] `} suppressHydrationWarning={true}>
         
         <Navbar/>
 

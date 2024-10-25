@@ -212,32 +212,41 @@ const ShaderMaterial = ({
     const preparedUniforms: { [key: string]: { value: number[] | number[][] | number | THREE.Vector3 | THREE.Vector2; type: string } } = {};
 
     for (const uniformName in uniforms) {
-      const uniform: any = uniforms[uniformName];
+      // console.log(uniforms[uniformName]); // O'chirildi
+
+      const uniform = uniforms[uniformName]; // any turini olib tashladik
 
       switch (uniform.type) {
         case "uniform1f":
-          preparedUniforms[uniformName] = { value: uniform.value, type: "1f" };
+          preparedUniforms[uniformName] = { value: uniform.value as number, type: "1f" }; // to'g'ri tur
           break;
         case "uniform3f":
           preparedUniforms[uniformName] = {
-            value: new THREE.Vector3().fromArray(uniform.value),
+            value: new THREE.Vector3().fromArray(uniform.value as number[]), // to'g'ri tur
             type: "3f",
           };
           break;
         case "uniform1fv":
-          preparedUniforms[uniformName] = { value: uniform.value, type: "1fv" };
+          preparedUniforms[uniformName] = { value: uniform.value as number[], type: "1fv" }; // to'g'ri tur
           break;
         case "uniform3fv":
-          preparedUniforms[uniformName] = {
-            value: uniform.value.map((v: number[]) =>
-              new THREE.Vector3().fromArray(v)
-            ),
-            type: "3fv",
-          };
+          console.log(uniform.value);
+          
+          if (Array.isArray(uniform.value) && Array.isArray(uniform.value[0])) {
+            preparedUniforms[uniformName] = {
+              value: (uniform.value as number[][]).map((innerArray) => {
+                return new THREE.Vector3().fromArray(innerArray);
+              }),
+              type: "3fv", 
+            };
+            
+          } else {
+            console.error(`Invalid value for '${uniformName}'. Expected an array of arrays.`);
+          }
           break;
         case "uniform2f":
           preparedUniforms[uniformName] = {
-            value: new THREE.Vector2().fromArray(uniform.value),
+            value: new THREE.Vector2().fromArray(uniform.value as number[]), // to'g'ri tur
             type: "2f",
           };
           break;

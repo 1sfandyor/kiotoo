@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { Sheet, SheetContent } from './ui/sheet'
 import MobileMenu from './mobileMenu'
+import { AOSInit } from './aos'
 
 const Navbar = () => {
 
@@ -23,9 +24,9 @@ const Navbar = () => {
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
               </svg>
           </button>
-
-          <Sheet open={open} onOpenChange={() => setOpen(false)}>
-            <SheetContent className='p-0 border-none bg-white py-10'>
+          <Sheet  open={open} onOpenChange={() => setOpen(false)}>
+            <AOSInit/>
+            <SheetContent data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500" className='p-0 border-none bg-white py-10'>
               <MobileMenu/>
             </SheetContent>
           </Sheet>

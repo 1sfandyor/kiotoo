@@ -14,7 +14,7 @@ const About = () => {
   return (
     <>
       <AOSInit/>
-      <div className='flex flex-col text-black container max-w-7xl xl:py-[110px] text-[15px] w-[calc(100%_-_350px)]' data-aos="fade-right">
+      <div className='flex flex-col text-black container xl:max-w-7xl xl:py-[110px] text-[15px] w-full xl:w-[calc(100%_-_350px)]' data-aos="fade-right">
         
         {/* BIOGRAPHY */}
         <Biography/>

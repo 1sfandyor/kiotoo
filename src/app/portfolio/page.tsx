@@ -1,5 +1,6 @@
+"use client";
+
 import Title from '@/components/Title'
-import React from 'react'
 import { Slash } from "lucide-react"
 import { AOSInit } from "@/components/aos";
 import { breadcrumbs } from '@/data/breadcrumb';
@@ -8,14 +9,19 @@ import { portfolio } from '@/data/portfolio';
 import { GlareCard } from '@/components/ui/glare-card';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
+import React from "react";
+import { Modal, ModalBody, ModalContent, ModalTrigger } from '@/components/ui/animated-modal';
+
 
 const Portfolio = () => {
   return (
     <>
       <AOSInit/>
+      
       <div className='flex flex-col text-black w-full 2xl:py-[95px] pb-[80px] text-[15px] 2xl:px-5 mx-[23px]' data-aos="fade-right">
         {/* TOP */}
         <div className='flex flex-col xlg:flex-row  items-center justify-between mb-[30px] xlg:mb-[70px] 2xl:mb-[70px]'>
+
           <Title className='mb-[50px] xlg:mb-0'>{'// Creative Portfolio'}</Title>
           <Breadcrumb>
             <BreadcrumbList>
@@ -40,11 +46,27 @@ const Portfolio = () => {
           {
             portfolio.map(card => (
               <div key={card.id} className='border p-2.5 '>
-                {/* CARD */}
-                <GlareCard key={card.id} className="flex flex-col items-center justify-center">
-                  <p className="text-white font-bold text-2xl mt-4 uppercase">Any size</p>
-                </GlareCard>
+                <Modal>
+                  <ModalTrigger >
+                    {/* CARD */}
+                    <GlareCard key={card.id} className="flex flex-col items-center justify-center">
+                      <p className="text-white font-bold text-2xl mt-4 uppercase">Any size</p>
+                    </GlareCard>
+                  </ModalTrigger>
 
+                  <ModalBody>
+                    <ModalContent>
+                      <iframe 
+                        width="1280" 
+                        height="720" 
+                        src="https://www.youtube.com/embed/Zq5fmkH0T78" 
+                        title="Next.js 15 Crash Course | Build and Deploy a Production-Ready Full Stack App" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="strict-origin-when-cross-origin" 
+                        allowFullScreen/>
+                    </ModalContent>
+                  </ModalBody>
+                </Modal>
                 <Separator className='mt-2.5'/>
                 
                 {/* INFO */}

@@ -124,6 +124,9 @@ const config: Config = {
 
 					'4xl': '1536px',
 					// => @media (min-width: 1536px) { ... }
+
+					'6xl': '1600px',
+
 				}
       },
 		},
@@ -158,6 +161,9 @@ const config: Config = {
       // => @media (min-width: 1536px) { ... }
 
 			
+			'6xl': '1600px',
+      // => @media (min-width: 1536px) { ... }
+
     }
   },
   plugins: [

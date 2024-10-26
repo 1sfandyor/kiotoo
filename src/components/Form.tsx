@@ -41,7 +41,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full mb-16">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

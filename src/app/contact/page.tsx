@@ -4,12 +4,12 @@ import Title from '@/components/Title'
 import { contact } from '@/data/contact'
 import React from 'react'
 import { AOSInit } from "@/components/aos";
-
+import GoogleMaps from "@/components/map"
 const Contact = () => {
   return (
     <>
       <AOSInit/>
-      <div className='w-full flex mx-[23.5px] px-5 pt-[100px] text-black flex-col items-start justify-center' data-aos="fade-right">
+      <div className='w-full pb-20 container 4xl:w-[1240px] mx-auto flex mx-[23.5px] px-5 pt-[100px] text-black flex-col items-start justify-center' data-aos="fade-right">
         <Title className='mb-[60px]'>{'// Get In Touch'}</Title>
         
         <div className='flex w-full items-start flex-col mb-10'>
@@ -23,7 +23,8 @@ const Contact = () => {
         </div>
 
         <ContactForm/>
-
+        
+        <GoogleMaps/>
       </div>
     </>
   )

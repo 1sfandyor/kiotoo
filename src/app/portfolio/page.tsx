@@ -54,11 +54,11 @@ const Portfolio = () => {
                     </GlareCard>
                   </ModalTrigger>
 
-                  <ModalBody>
-                    <ModalContent>
+                  <ModalBody className='border-0 '>
+                    <ModalContent className='p-0 md:p-0'>
                       <iframe 
-                        width="1280" 
-                        height="720" 
+                        height="100%"
+                        className='flex-grow'
                         src="https://www.youtube.com/embed/Zq5fmkH0T78" 
                         title="Next.js 15 Crash Course | Build and Deploy a Production-Ready Full Stack App" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 

@@ -38,13 +38,12 @@ function GoogleMaps() {
 
   return isLoaded ? (
       <div className="w-full h-full grayscale hover:grayscale-0 transition duration-500">
-<GoogleMap
+          <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
             onLoad={onLoad}
             zoom={1000}
             options={OPTIONS}
-            className="grayscale"
           >
             {/* Child components, such as markers, info windows, etc. */}
             <Marker position={center} title="Your Location" /> {/* Basic marker example */}

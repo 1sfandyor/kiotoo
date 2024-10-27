@@ -1,5 +1,6 @@
 "use client"
 
+import { ReactNode, useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -21,9 +22,12 @@ import {
 import { formSchema } from "@/schema/validation"
 import { Textarea } from "./ui/textarea"
 import Button from "./Button"
-
+import { useToast } from "@/hooks/use-toast"
 
 export const ContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { toast } = useToast()
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,8 +40,35 @@ export const ContactForm = () => {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      })
+
+      if (response.ok) {
+        toast({
+          title: "Success",
+          description: "Your message has been sent successfully.",
+        })
+        form.reset()
+      } else {
+        throw new Error('Failed to send message')
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: error as ReactNode,
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -121,7 +152,7 @@ export const ContactForm = () => {
               </FormItem>
             )}
           />
-          <div className="flex items-center  space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="flex items-center space-y-4 sm:space-y-0 sm:space-x-4">
             <div className="bg-gray-600 text-white p-3 h-full self-start text-center sm:w-auto">23875</div>
             <FormField
               control={form.control}
@@ -136,8 +167,8 @@ export const ContactForm = () => {
               )}
             />
           </div>
-          <Button type="submit" className=" bg-gray-600 hover:bg-gray-700">
-            SEND MESSAGE
+          <Button type="submit" className="bg-gray-600 hover:bg-gray-700" >
+            {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
           </Button>
         </form>
       </Form>

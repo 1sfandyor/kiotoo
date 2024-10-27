@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer'
 import { formSchema } from "@/schema/validation"
 
 // Put contacting email here
-const MAIN_EMAIL = "isfandiyor06112000@gmail.com"
+const MAIN_EMAIL = process.env.NEXT_PUBLIC_GMAIL_SMTP_EMAIL
 
 export async function POST(request: Request) {
   const body = await request.json()
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
       secure: false,
       auth: {
         user: MAIN_EMAIL,
-        pass: "ivch sika flbe dcgm",
+        pass: process.env.NEXT_PUBLIC_GMAIL_SMTP_PASSWORD,
       },
     })
 
